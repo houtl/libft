@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsubc.c                                       :+:      :+:    :+:   */
+/*   ft_strjoinf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/12/16 15:09:57 by thou              #+#    #+#             */
-/*   Updated: 2017/01/03 11:49:49 by thou             ###   ########.fr       */
+/*   Created: 2017/02/02 15:54:17 by thou              #+#    #+#             */
+/*   Updated: 2017/02/02 16:03:59 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strsubc(char *src, char c)
+char	*ft_strjoinf(char const *s1, char const *s2)
 {
-	int		len;
+	char	*a;
 	char	*dst;
 
-	len = 0;
-	if (!src)
-		return (0);
-	while (src[len] != c && src[len])
-		len++;
-	if (!(dst = ft_strsub(src, 0, (len))))
-		return (0);
+	a = (char*)s1;
+	dst = ft_strjoin(s1, s2);
+	free(a);
 	return (dst);
 }
