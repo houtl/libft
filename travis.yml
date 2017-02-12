@@ -1,5 +1,5 @@
 language: c
 install:
-    - make 
+    - make re
 script:
     - "./hello"
