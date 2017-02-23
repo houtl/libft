@@ -27,7 +27,7 @@ SRC_BASE			=	$(addprefix $(LIBC_DIR), $(LIBC))\
 						$(addprefix $(BONUS_DIR), $(BONUS))\
 						$(addprefix $(AUTRES_DIR), $(AUTRES))
 SRCS				=	$(addprefix $(SRC_DIR), $(SRC_BASE))
-OBJS				=	$(addprefix $(OBJ_DIR), $(SRCS_BASE:%.c=%.o))
+OBJS				=	$(addprefix $(OBJ_DIR), $(SRCS_BASE:.c=.o))
 
 all: $(NAME)
 
