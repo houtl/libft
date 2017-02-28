@@ -6,9 +6,20 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 17:40:06 by thou              #+#    #+#              #
-#    Updated: 2017/02/28 11:52:02 by thou             ###   ########.fr        #
+#    Updated: 2017/02/28 17:34:45 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+BLACK					=	\033[30;1m
+RED						=	\033[31;1m
+GREEN					=	\033[32;1m
+YELLOW					=	\033[33;1m
+BLUE					=	\033[34;1m
+PURPLE					=	\033[35;1m
+CYAN					=	\033[36;1m
+WHITE					=	\033[37;1m
+RESET					=	\033[0m
+CLEAR					=	\033[H\e[J
 
 NAME					=	libft.a
 FLAG					=	-Wall -Wextra -Werror -Iincludes
@@ -63,24 +74,38 @@ SRC_BASE				=	$(addprefix $(LIBC_DIR), $(LIBC))\
 							$(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE))
 SRCS					=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS					=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
+NB						=	$(words $(SRC_BASE))
+INDEX					=	1	
+DELTA					=   $$(echo "$$(tput cols)-48"|bc)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
-	printf "\r\e[48;5;15;38;5;25m✅ MAKE $(NAME)\e[0m\e[K\n"
+	@ar rc $(NAME) $(OBJS)
+	@ranlib $(NAME)
+	@echo "\033[48D\033[K\033[u✅ \c"
+	@echo "\n\033[48;5;15;38;5;25;1mMAKE $(NAME) DONE$(RESET)"
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
-	mkdir -p $(dir $@)
-	gcc $(FLAG) -c $< -o $@
+	@$(eval DONE=$(shell echo $$(($(INDEX)*20/$(NB)))))
+	@$(eval PERCENT=$(shell echo $$(($(INDEX)*100/$(NB)))))
+	@$(eval COLOR=$(shell echo $$((89-$(PERCENT)/16))))
+	@$(eval TO_DO=$(shell echo $$((20-$(INDEX)*20/$(NB)))))
+	@printf "\r\e[38;5;11m⌛ MAKE	$(NAME): \e[48;5;$(COLOR)m%*s\e[45;1m%*s$(RESET)$(YELLOW) $(PERCENT)%% $(RESET) \e[38;5;11m %*s$(RESET)" $(DONE) "" $(TO_DO) "" $(DELTA) "$@"
+	@mkdir -p $(dir $@)
+	@gcc $(FLAG) -c $< -o $@
+	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 f: fclean
 
 clean:
-	/bin/rm -rf $(OBJ_DIR)
+	@echo "$(YELLOW)Clean	objs⌛\c$(RESET)"
+	@/bin/rm -rf $(OBJ_DIR)
+	@echo "\033[D\033[K$(GREEN)			[ OK ]$(RESET)"
 
 fclean:	clean
-	/bin/rm -rf $(NAME)
+	@echo "$(YELLOW)Clean	libft.a⌛\c$(RESET)"
+	@/bin/rm -rf $(NAME)
+	@echo "\033[D\033[K$(GREEN)			[ OK ]$(RESET)"
 
 re: fclean all
