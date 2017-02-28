@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 17:40:06 by thou              #+#    #+#              #
-#    Updated: 2017/02/27 18:00:05 by thou             ###   ########.fr        #
+#    Updated: 2017/02/28 11:52:02 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,25 +66,21 @@ OBJS					=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 
 all: $(NAME)
 
-$(NAME): $(OBJ_DIR) $(OBJS)
-	@ar rc $(NAME) $(OBJS)
-	@ranlib $(NAME)
-	@printf "\r\e[48;5;15;38;5;25m✅ MAKE $(NAME)\e[0m\e[K\n"
-
-$(OBJ_DIR):
-	@mkdir -p $(OBJ_DIR)
-	@mkdir -p $(dir $(OBJS))
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
+	printf "\r\e[48;5;15;38;5;25m✅ MAKE $(NAME)\e[0m\e[K\n"
 
 $(OBJ_DIR)%.o:$(SRC_DIR)%.c
-	@gcc $(FLAG) -c $< -o $@
+	mkdir -p $(dir $@)
+	gcc $(FLAG) -c $< -o $@
 
 f: fclean
 
 clean:
-	@/bin/rm -rf $(OBJS)
+	/bin/rm -rf $(OBJ_DIR)
 
 fclean:	clean
-	@/bin/rm -rf $(OBJ_DIR)
-	@/bin/rm -rf $(NAME)
+	/bin/rm -rf $(NAME)
 
 re: fclean all
