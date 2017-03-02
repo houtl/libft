@@ -1,8 +1,8 @@
 language: c
 script:
-	- make re
+    - make re
 os:
-	- osx
-	- linux
+    - osx
+    - linux
 env:
-	ARCH=x86_64    
+    - ARCH=x86_64
