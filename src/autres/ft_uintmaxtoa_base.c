@@ -6,13 +6,13 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 11:52:44 by thou              #+#    #+#             */
-/*   Updated: 2017/03/25 12:00:00 by thou             ###   ########.fr       */
+/*   Updated: 2017/03/25 12:16:03 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nb_base(int value, int base)
+static int	ft_nb_base(uintmax_t value, int base)
 {
 	int		i;
 
@@ -34,7 +34,7 @@ char	*ft_uintmaxtoa_base(uintmax_t value, int base, char x)
 	char	*c;
 	char	*b;
 
-	b = "0123456789ABCDEF";
+	b = (x = 'x') ? "0123456789abcdef" : "0123456789ABCDEF";
 	c = (char*)malloc(sizeof(char) * (ft_nb_base(value, base) + 1));
 	if (!c)
 		return (NULL);
