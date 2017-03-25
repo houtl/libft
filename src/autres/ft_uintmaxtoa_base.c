@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/25 11:52:44 by thou              #+#    #+#             */
-/*   Updated: 2017/03/25 12:16:03 by thou             ###   ########.fr       */
+/*   Updated: 2017/03/25 12:23:20 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 static int	ft_nb_base(uintmax_t value, int base)
 {
-	int		i;
+	int			i;
 
 	i = 1;
-	if (base == 10 && value < 0)
-		i++;
 	while (value / base != 0)
 	{
 		i++;
@@ -29,10 +27,10 @@ static int	ft_nb_base(uintmax_t value, int base)
 
 char	*ft_uintmaxtoa_base(uintmax_t value, int base, char x)
 {
-	int		i;
-	long	n;
-	char	*c;
-	char	*b;
+	int			i;
+	uintmax_t	n;
+	char		*c;
+	char		*b;
 
 	b = (x = 'x') ? "0123456789abcdef" : "0123456789ABCDEF";
 	c = (char*)malloc(sizeof(char) * (ft_nb_base(value, base) + 1));
@@ -41,12 +39,6 @@ char	*ft_uintmaxtoa_base(uintmax_t value, int base, char x)
 	i = ft_nb_base(value, base);
 	c[i--] = 0;
 	n = value;
-	if (value < 0)
-	{
-		n = -n;
-		if (base == 10)
-		c[0] = '-';
-	}
 	while (n / base != 0)
 	{
 		c[i--] = *(b + (n % base));
