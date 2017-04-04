@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa_base.c                                     :+:      :+:    :+:   */
+/*   ft_intmaxtoa_base.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/21 14:47:41 by thou              #+#    #+#             */
-/*   Updated: 2017/03/28 11:31:40 by thou             ###   ########.fr       */
+/*   Created: 2017/03/29 08:54:30 by thou              #+#    #+#             */
+/*   Updated: 2017/03/29 12:37:33 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_nb_base(int value, int base)
+static int	ft_nb_base(intmax_t value, int base)
 {
-	int		i;
+	int			i;
 
 	i = 1;
 	if (base == 10 && value < 0)
@@ -27,12 +27,12 @@ static int	ft_nb_base(int value, int base)
 	return (i);
 }
 
-char		*ft_itoa_base(int value, int base, char x)
+char		*ft_intmaxtoa_base(intmax_t value, int base, char x)
 {
-	int		i;
-	long	n;
-	char	*c;
-	char	*b;
+	intmax_t	i;
+	intmax_t	n;
+	char		*c;
+	char		*b;
 
 	b = (ft_isupper(x)) ? "0123456789ABCDEF" : "0123456789abcdef";
 	c = (char*)malloc(sizeof(char) * (ft_nb_base(value, base) + 1));
@@ -40,13 +40,11 @@ char		*ft_itoa_base(int value, int base, char x)
 		return (NULL);
 	i = ft_nb_base(value, base);
 	c[i--] = 0;
-	n = value;
-	if (value < 0)
-	{
-		n = -n;
-		if (base == 10)
-			c[0] = '-';
-	}
+	if (value == INTMAX_MIN)
+		return (ft_strcpy(c, "-9223372036854775808"));
+	n = (value < 0) ? -value : value;
+	if (base == 10 && value < 0)
+		c[0] = '-';
 	while (n / base != 0)
 	{
 		c[i--] = *(b + (n % base));

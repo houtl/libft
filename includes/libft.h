@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 10:22:36 by thou              #+#    #+#             */
-/*   Updated: 2017/03/26 16:59:05 by thou             ###   ########.fr       */
+/*   Updated: 2017/04/04 17:20:19 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include "get_next_line.h"
+# include "ft_printf.h"
 
 typedef struct	s_list
 {
@@ -25,7 +26,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-char			*ft_uintmaxtoa_base(uintmax_t value, int base, char x);
+char			*ft_intmaxtoa_base(intmax_t value, int base, char x);
+char			*ft_uimtoa_base(uintmax_t value, int base, char x);
 int				ft_atoi_base(const char *str, int base);
 char			*ft_strjoinfree2(char const *s1, char const *s2);
 char			*ft_strjoinfree(char const *s1, char const *s2);
@@ -34,7 +36,7 @@ char			*ft_strsubc(char *src, char c);
 double			ft_clamp(double x, double min, double max);
 int				ft_islower(int c);
 int				ft_isupper(int c);
-char			*ft_itoa_base(int value, int base);
+char			*ft_itoa_base(int value, int base, char x);
 int				ft_wordnb(const char *s, char c);
 void			*ft_memset(void *s, int c, size_t n);
 void			ft_bzero(void *s, size_t n);

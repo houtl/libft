@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 17:40:06 by thou              #+#    #+#              #
-#    Updated: 2017/03/26 17:02:06 by thou             ###   ########.fr        #
+#    Updated: 2017/04/04 17:21:25 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ WHITE					=	\033[37;1m
 RESET					=	\033[0m
 CLEAR					=	\033[H\e[J
 
-NAME					=	libft.a
+NAME					=	libftprintf.a
 FLAG					=	-Wall -Wextra -Werror -Iincludes
 SRC_DIR					=	src/
 OBJ_DIR					=	obj/
@@ -30,6 +30,7 @@ SUPPLEMENTAIRE_DIR		=	supplementaire/
 BONUS_DIR				=	bonus/
 AUTRES_DIR				=	autres/
 GET_NEXT_LINE_DIR		=	get_next_line/
+FT_PRINTF_DIR			=	ft_printf/
 LIBC					=	ft_atoi.c\
 							ft_isdigit.c\
 							ft_memcpy.c\
@@ -67,17 +68,20 @@ BONUS					=	ft_lstadd.c\
 							ft_lstnew.c
 AUTRES					=	ft_atoi_base.c ft_clamp.c ft_isupper.c ft_strjoinchar.c ft_strsubc.c ft_islower.c
 AUTRES					+=	ft_itoa_base.c ft_strjoinfree.c ft_wordnb.c ft_uintmaxtoa_base.c ft_strjoinfree2.c
+AUTRES					+=	ft_intmaxtoa_base.c
 GET_NEXT_LINE			=	get_next_line.c
+FT_PRINTF				=	ft_printf.c ft_vfprintf.c ft_printf0.c ft_printf1.c ft_printf2.c ft_printnesp.c ft_printfhl.c ft_printfh.c
 SRC_BASE				=	$(addprefix $(LIBC_DIR), $(LIBC))\
 							$(addprefix $(SUPPLEMENTAIRE_DIR), $(SUPPLEMENTAIRE))\
 							$(addprefix $(BONUS_DIR), $(BONUS))\
 							$(addprefix $(AUTRES_DIR), $(AUTRES))\
-							$(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE))
+							$(addprefix $(GET_NEXT_LINE_DIR), $(GET_NEXT_LINE))\
+							$(addprefix $(FT_PRINTF_DIR), $(FT_PRINTF))
 SRCS					=	$(addprefix $(SRC_DIR), $(SRC_BASE))
 OBJS					=	$(addprefix $(OBJ_DIR), $(SRC_BASE:.c=.o))
 NB						=	$(words $(SRC_BASE))
 INDEX					=	1	
-DELTA					=	$$(expr $$(tput cols) - 48)
+DELTA					=	$$(expr $$(tput cols) - 54)
 
 all: $(NAME)
 

@@ -1,35 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strsub.c                                        :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/17 11:41:40 by thou              #+#    #+#             */
-/*   Updated: 2017/03/28 17:45:40 by thou             ###   ########.fr       */
+/*   Created: 2016/12/19 17:48:47 by thou              #+#    #+#             */
+/*   Updated: 2017/03/27 13:56:07 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strsub(char const *s, unsigned int start, size_t len)
+int	ft_printf(const char *format, ...)
 {
-	char	*a;
-	char	*dst;
-	int		i;
+	va_list	arg;
+	int		done;
+	char	*fmt;
 
-	a = (char*)s;
-	if (!s)
-		return (NULL);
-	if (start > ft_strlen(s))
-		return (NULL);
-	dst = (char*)malloc(sizeof(char) * (len + 1));
-	if (!dst)
-		return (NULL);
-	a += start;
-	i = 0;
-	while (len--)
-		dst[i++] = *(a++);
-	dst[i] = 0;
-	return (dst);
+	fmt = (char*)format;
+	va_start(arg, format);
+	done = ft_vfprintf(fmt, arg);
+	va_end(arg);
+	return (done);
 }
