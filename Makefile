@@ -6,7 +6,7 @@
 #    By: thou <marvin@42.fr>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/03 17:40:06 by thou              #+#    #+#              #
-#    Updated: 2017/04/06 18:09:24 by thou             ###   ########.fr        #
+#    Updated: 2017/04/06 18:24:05 by thou             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,7 @@ clean:
 	@echo "\033[D\033[K$(GREEN)			[ OK ]$(RESET)"
 
 fclean:	clean
-	@echo "$(YELLOW)Clean	libft.a⌛\c$(RESET)"
+	@echo "$(YELLOW)Clean	$(NAME)⌛\c$(RESET)"
 	@/bin/rm -rf $(NAME)
 	@echo "\033[D\033[K$(GREEN)			[ OK ]$(RESET)"
 
