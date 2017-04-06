@@ -1,6 +1,6 @@
 language: c
 script:
-    - make re
+    - env -i make re
 os:
     - osx
     - linux
