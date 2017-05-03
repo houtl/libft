@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 10:22:36 by thou              #+#    #+#             */
-/*   Updated: 2017/04/06 17:58:13 by thou             ###   ########.fr       */
+/*   Updated: 2017/05/03 18:11:09 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+int				ft_stricmp(char *str, char *c);
 char			*ft_intmaxtoa_base(intmax_t value, int base, char x);
 char			*ft_uimtoa_base(uintmax_t value, int base, char x);
 int				ft_atoi_base(const char *str, int base);
