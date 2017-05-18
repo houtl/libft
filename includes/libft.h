@@ -28,6 +28,7 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+int				ft_iswhitespace(int c);
 int				ft_charnb(char *str, char c);
 int				ft_stricmp(char *str, char *c);
 char			*ft_intmaxtoa_base(intmax_t value, int base, char x);

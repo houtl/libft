@@ -68,7 +68,7 @@ BONUS					=	ft_lstadd.c\
 							ft_lstnew.c
 AUTRES					=	ft_atoi_base.c ft_clamp.c ft_isupper.c ft_strjoinchar.c ft_strsubc.c ft_islower.c
 AUTRES					+=	ft_itoa_base.c ft_strjoinfree.c ft_wordnb.c ft_uintmaxtoa_base.c ft_strjoinfree2.c
-AUTRES					+=	ft_intmaxtoa_base.c ft_stricmp.c ft_charnb.c
+AUTRES					+=	ft_intmaxtoa_base.c ft_stricmp.c ft_charnb.c ft_iswhitespace.c
 GET_NEXT_LINE			=	get_next_line.c
 FT_PRINTF				=	ft_printf.c ft_vfprintf.c ft_printf0.c ft_printf1.c ft_printf2.c ft_printnesp.c ft_printfhl.c ft_printfh.c
 SRC_BASE				=	$(addprefix $(LIBC_DIR), $(LIBC))\
