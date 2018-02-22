@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:29:05 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 15:52:53 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 15:53:43 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static intmax_t	ft_ctoi(char c)
 	return (-1);
 }
 
-intmax_t		ft_atouintmax_base(const char *str, int base)
+intmax_t		ft_atointmax_base(const char *str, int base)
 {
 	char		*c;
 	intmax_t	i;
