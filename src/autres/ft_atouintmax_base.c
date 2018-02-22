@@ -6,13 +6,13 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:29:05 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 14:54:09 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 15:44:55 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_ctoi(char c)
+static uintmax_t	ft_ctoi(char c)
 {
 	if (c >= '0' && c <= '9')
 		return ((c - '0'));
@@ -23,11 +23,11 @@ static int	ft_ctoi(char c)
 	return (-1);
 }
 
-int			ft_atouintmax_base(const char *str, int base)
+int					ft_atouintmax_base(const char *str, int base)
 {
 	char		*c;
 	uintmax_t	i;
-	int			k;
+	uintmax_t	k;
 
 	c = (char*)str;
 	i = 0;
