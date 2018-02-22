@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 10:22:36 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 14:47:07 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 15:49:16 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ int				ft_isint(char *str);
 int				ft_iswhitespace(int c);
 int				ft_charnb(char *str, char c);
 int				ft_stricmp(char *str, char *c);
-int				ft_atouintmax_base(const char *str, int base);
+intmax_t		ft_atointmax_base(const char *str, int base);
 char			*ft_intmaxtoa_base(intmax_t value, int base, char x);
 char			*ft_uimtoa_base(uintmax_t value, int base, char x);
 int				ft_atoi_base(const char *str, int base);

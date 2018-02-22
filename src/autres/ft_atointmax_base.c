@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atouintmax_base.c                               :+:      :+:    :+:   */
+/*   ft_atointmax_base.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:29:05 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 15:44:55 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 15:47:48 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static uintmax_t	ft_ctoi(char c)
+static intmax_t	ft_ctoi(char c)
 {
 	if (c >= '0' && c <= '9')
 		return ((c - '0'));
@@ -23,11 +23,11 @@ static uintmax_t	ft_ctoi(char c)
 	return (-1);
 }
 
-int					ft_atouintmax_base(const char *str, int base)
+int				ft_atouintmax_base(const char *str, int base)
 {
 	char		*c;
-	uintmax_t	i;
-	uintmax_t	k;
+	intmax_t	i;
+	intmax_t	k;
 
 	c = (char*)str;
 	i = 0;
