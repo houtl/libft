@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi_base.c                                     :+:      :+:    :+:   */
+/*   ft_atouintmax_base.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/03/16 12:29:05 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 14:43:10 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 14:54:09 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	ft_ctoi(char c)
 	return (-1);
 }
 
-int			ft_atoi_base(const char *str, int base)
+int			ft_atouintmax_base(const char *str, int base)
 {
 	char		*c;
 	uintmax_t	i;

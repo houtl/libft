@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/22 14:32:58 by thou              #+#    #+#             */
-/*   Updated: 2018/02/22 14:52:44 by thou             ###   ########.fr       */
+/*   Updated: 2018/02/22 14:54:30 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int		ft_isint(char *str)
 
 	if (ft_strlen(str) > 11)
 		return (0);
-	i = ft_atouintmax(str, 10);
+	i = ft_atouintmax_base(str, 10);
 	if (i > 2147483647 || i < -2147483648)
 		return (0);
 	return (1);
