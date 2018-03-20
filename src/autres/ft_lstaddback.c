@@ -6,13 +6,13 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 13:08:34 by thou              #+#    #+#             */
-/*   Updated: 2018/03/20 13:09:34 by thou             ###   ########.fr       */
+/*   Updated: 2018/03/20 13:13:48 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void		lst_add_back(t_list **lst, t_list *new)
+void	ft_lstaddback(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
