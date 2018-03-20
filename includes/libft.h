@@ -6,7 +6,7 @@
 /*   By: thou <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/04 10:22:36 by thou              #+#    #+#             */
-/*   Updated: 2018/03/20 13:14:47 by thou             ###   ########.fr       */
+/*   Updated: 2018/03/20 13:25:17 by thou             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
+double			ft_atof(char *nb, int *i);
+int				ft_abs(int i);
 void			ft_lstaddback(t_list **lst, t_list *new);
 int				ft_isint(char *str);
 int				ft_iswhitespace(int c);
